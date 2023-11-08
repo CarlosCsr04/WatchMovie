@@ -1,0 +1,7 @@
+{
+  "name": "WatchMovie",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
