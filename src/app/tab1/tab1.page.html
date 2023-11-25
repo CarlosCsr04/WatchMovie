@@ -3,7 +3,7 @@
 
 
 
-<ion-content [fullscreen]="true" class="conteudo">
+<ion-content [fullscreen]="true" class="conteudo ion-page">
 
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -30,7 +30,7 @@
   <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
     <swiper-slide>
         <ion-card class="carrossels">
-          <img src="../../assets/dest1.jpg" alt="">
+          <img src="../../assets/dest1.jpg" alt="" id="open-modal">
         </ion-card>
     </swiper-slide>
     <swiper-slide>
@@ -56,33 +56,97 @@
   </swiper-container>
 
   <h4>
-    Ficção Científica
+    Clássicos
   </h4>
 
   <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
     <swiper-slide>
         <ion-card class="carrossels">
-          <img src="../../assets/fic1.jpg" alt="">
+          <img src="../../assets/clas1.jpg" alt="">
         </ion-card>
     </swiper-slide>
     <swiper-slide>
       <ion-card class="carrossels">
-        <img src="../../assets/fic2.jpg" alt="">
+        <img src="../../assets/clas2.jpg" alt="">
       </ion-card>
     </swiper-slide>
     <swiper-slide>
       <ion-card class="carrossels"> 
-        <img src="../../assets/fic3.jpg" alt="">
+        <img src="../../assets/clas3.jpg" alt="">
       </ion-card>
     </swiper-slide>
     <swiper-slide>
       <ion-card class="carrossels">
-        <img src="../../assets/fic4.jpg" alt="">
+        <img src="../../assets/clas4.jpg" alt="">
       </ion-card>
     </swiper-slide>
     <swiper-slide>
       <ion-card class="carrossels">
-        <img src="../../assets/fic5.jpg" alt="">
+        <img src="../../assets/clas5.jpg" alt="">
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <h4>
+    Baseado em fatos reais
+  </h4>
+
+  <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
+    <swiper-slide>
+        <ion-card class="carrossels">
+          <img src="../../assets/real1.jpg" alt="" >
+        </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card class="carrossels">
+        <img src="../../assets/real2.jpg" alt="">
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card class="carrossels"> 
+        <img src="../../assets/real3.jpg" alt="">
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card class="carrossels">
+        <img src="../../assets/real4.jpg" alt="">
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card class="carrossels">
+        <img src="../../assets/real5.jpg" alt="">
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+
+  <h4>
+    Romance
+  </h4>
+
+  <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
+    <swiper-slide>
+        <ion-card class="carrossels">
+          <img src="../../assets/roma1.jpg" alt="">
+        </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card class="carrossels">
+        <img src="../../assets/roma2.jpg" alt="">
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card class="carrossels"> 
+        <img src="../../assets/roma3.jpg" alt="">
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card class="carrossels">
+        <img src="../../assets/roma4.jpg" alt="">
+      </ion-card>
+    </swiper-slide>
+    <swiper-slide>
+      <ion-card class="carrossels">
+        <img src="../../assets/roma5.jpg" alt="">
       </ion-card>
     </swiper-slide>
   </swiper-container>
@@ -92,35 +156,29 @@
   </h4>
 
   <swiper-container slides-per-view="2" speed="500" loop="true" css-mode="true">
-    <swiper-slide>
+    <swiper-slide *ngFor="let f of filmes">
         <ion-card class="carrossels">
-          <img src="../../assets/acao1.jpg" alt="">
+          <img src={{f.imagem}} alt="">
         </ion-card>
-    </swiper-slide>
-    <swiper-slide>
-      <ion-card class="carrossels">
-        <img src="../../assets/acao2.jpg" alt="">
-      </ion-card>
-    </swiper-slide>
-    <swiper-slide>
-      <ion-card class="carrossels"> 
-        <img src="../../assets/acao3.jpg" alt="">
-      </ion-card>
-    </swiper-slide>
-    <swiper-slide>
-      <ion-card class="carrossels">
-        <img src="../../assets/acao4.jpg" alt="">
-      </ion-card>
-    </swiper-slide>
-    <swiper-slide>
-      <ion-card class="carrossels">
-        <img src="../../assets/acao5.jpg" alt="">
-      </ion-card>
     </swiper-slide>
   </swiper-container>
 
+  <ion-modal #modal trigger="open-modal" [presentingElement]="presentingElement">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Filme</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="modal.dismiss()">Fechar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <img src="../../assets/dest1.jpg" alt="">
+      </ion-content>    
+    </ng-template>
+  </ion-modal>
 
-    
 
     
 </ion-content>
